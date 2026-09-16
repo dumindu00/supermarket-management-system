@@ -48,22 +48,47 @@ namespace POSales
                 {
                     cn.Open();
                     cmd = new MySqlCommand("INSERT INTO tbCategory(category)VALUES(@category)", cn);
-                    cmd.Parameters.AddWithValue("@brand", textCategory.Text);
+                    cmd.Parameters.AddWithValue("@category", textCategory.Text);
                     cmd.ExecuteNonQuery();
                     cn.Close();
-                    MessageBox.Show("Record has been successfully saved.", "Point Of Sales");
+                    MessageBox.Show("Category has been successfully saved.", "Point Of Sales");
                     Clear();
                 }
+                category.LoadCategory();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-        }
+        } 
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Clear();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            // Update brand name
+            if (MessageBox.Show("Are you sure you want to update this category?", "Update Record!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                cn.Open();
+                cmd = new MySqlCommand(
+                        "UPDATE tbCategory SET category = @category WHERE id = @id", cn);
+
+                cmd.Parameters.AddWithValue("@category", textCategory.Text);
+                cmd.Parameters.AddWithValue("@id", Convert.ToInt32(lblId.Text));
+                cmd.ExecuteNonQuery();
+                cn.Close();
+                MessageBox.Show("Category has been successfully updated.", "POS");
+                Clear();
+                this.Dispose(); // To close this from after update data
+            }
+        }
+
+        private void picClose_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

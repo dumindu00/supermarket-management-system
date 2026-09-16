@@ -48,5 +48,38 @@ namespace POSales
             dr.Close();
             cn.Close();
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            CategoryModule module = new CategoryModule(this);
+            module.ShowDialog();
+        }
+
+        private void dgvCategory_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string colName = dgvCategory.Columns[e.ColumnIndex].Name;
+            if (colName == "Delete")
+            {
+                if (MessageBox.Show("Are you sure you want to delete this record?", "Delete Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    cn.Open();
+                    cmd = new MySqlCommand("DELETE FROM tbCategory WHERE id LIKE '" + dgvCategory[1, e.RowIndex].Value.ToString() + "'", cn);
+                    cmd.ExecuteNonQuery();
+                    cn.Close();
+                    MessageBox.Show("Category has been successfully deleted.", "POS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else if (colName == "Edit")
+            {
+                CategoryModule module = new CategoryModule(this);
+                module.lblId.Text = dgvCategory[1, e.RowIndex].Value.ToString();
+                module.textCategory.Text = dgvCategory[2, e.RowIndex].Value.ToString();
+                module.btnSave.Enabled = false;
+                module.btnUpdate.Enabled = true;
+                module.ShowDialog();
+
+            }
+            LoadCategory();
+        }
     }
 }
