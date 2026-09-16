@@ -1,0 +1,88 @@
+﻿using MySql.Data.MySqlClient;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace POSales
+{
+    public partial class Supplier : Form
+    {
+
+        MySqlConnection cn;
+        MySqlCommand cmd;
+        DBConnect dbcon = new DBConnect();
+        MySqlDataReader dr;
+
+
+
+
+
+        public Supplier()
+        {
+            InitializeComponent();
+            cn = dbcon.GetConnection();
+            LoadSupplier();
+        }
+
+        public void LoadSupplier()
+        {
+            dgvSupplier.Rows.Clear();
+            int i = 0;
+            cn.Open();
+            cmd = new MySqlCommand("SELECT * FROM tbSupplier", cn);
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                i++;
+                dgvSupplier.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString());
+            }
+            dr.Close();
+            cn.Close();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            SupplierModule supplierModule = new SupplierModule(this);
+            supplierModule.ShowDialog();
+        }
+
+        private void dgvSupplier_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string colName = dgvSupplier.Columns[e.ColumnIndex].Name;
+            if (colName == "Edit")
+            {
+                SupplierModule supplierModule = new SupplierModule(this);
+                supplierModule.lblId.Text = dgvSupplier.Rows[e.RowIndex].Cells[1].Value.ToString();
+                supplierModule.txtSupplier.Text = dgvSupplier.Rows[e.RowIndex].Cells[2].Value.ToString();
+                supplierModule.txtAddress.Text = dgvSupplier.Rows[e.RowIndex].Cells[3].Value.ToString();
+                supplierModule.txtConPerson.Text = dgvSupplier.Rows[e.RowIndex].Cells[4].Value.ToString();
+                supplierModule.txtPhone.Text = dgvSupplier.Rows[e.RowIndex].Cells[5].Value.ToString();
+                supplierModule.txtEmail.Text = dgvSupplier.Rows[e.RowIndex].Cells[6].Value.ToString();
+                supplierModule.txtFax.Text = dgvSupplier.Rows[e.RowIndex].Cells[7].Value.ToString();
+
+                supplierModule.btnSave.Enabled = false;
+                supplierModule.btnUpdate.Enabled = true;
+                supplierModule.ShowDialog();
+            }
+            else if(colName=="Delete")
+            {
+                if (MessageBox.Show("Delete this record? click yes to confirm", "CONFRIM", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    cn.Open();
+                    cmd = new MySqlCommand("Delete from tbSupplier where id like '" + dgvSupplier.Rows[e.RowIndex].Cells[1].Value.ToString() + "'", cn);
+                    cmd.ExecuteNonQuery();
+                    cn.Close();
+                    MessageBox.Show("Record has been successfully deleted.", "Deleted Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+            }
+            LoadSupplier();
+        }
+    }
+}

@@ -107,11 +107,13 @@ namespace POSales
 
         private void btnProductList_Click(object sender, EventArgs e)
         {
+            openChildForm(new Product());
             hideSubmenue();
         }
 
         private void btnCategory_Click(object sender, EventArgs e)
         {
+            openChildForm(new Category());
             hideSubmenue();
         }
 
@@ -138,6 +140,7 @@ namespace POSales
 
         private void btnSupplier_Click(object sender, EventArgs e)
         {
+            openChildForm(new Supplier());
             hideSubmenue();
         }
 
@@ -162,7 +165,8 @@ namespace POSales
         }
 
         private void btnUser_Click(object sender, EventArgs e)
-        {
+        {   
+            openChildForm(new UserAccount());
             hideSubmenue() ;
         }
 
