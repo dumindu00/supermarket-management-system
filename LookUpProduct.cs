@@ -20,13 +20,14 @@ namespace POSales
         DBConnect dbcon = new DBConnect();
         MySqlDataReader dr;
         
-        string stitle = "Point of Sale";
+        Cashier cashier;
 
 
-        public LookUpProduct()
+        public LookUpProduct(Cashier cash)
         {
             InitializeComponent();
             cn = dbcon.GetConnection();
+            cashier = cash;
             LoadProduct();
         }
 
@@ -51,5 +52,30 @@ namespace POSales
             cn.Close();
         }
 
+        private void dgvProduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string colName = dgvProduct.Columns[e.ColumnIndex].Name;
+            if (colName == "Select")
+            {
+                Qty qty = new Qty(cashier);
+                qty.ProductDetails(dgvProduct.Rows[e.RowIndex].Cells[1].Value.ToString(), double.Parse(dgvProduct.Rows[e.RowIndex].Cells[6].Value.ToString()), cashier.lblTranNo.Text, int.Parse(dgvProduct.Rows[e.RowIndex].Cells[7].Value.ToString()));
+                qty.ShowDialog();
+
+
+            }
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            LoadProduct();
+        }
+
+        private void LookUpProduct_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Dispose();
+            }
+        }
     }
 }
