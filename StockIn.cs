@@ -61,7 +61,7 @@ namespace POSales
             while (dr.Read()) 
             {
                 i++;
-                dgvStockIn.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), dr[7].ToString());
+                dgvStockIn.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), dr["supplier"].ToString());
             }
             dr.Close();
             cn.Close();
@@ -158,5 +158,33 @@ namespace POSales
                 }
             }
         }
+
+        private void btnLoad_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                int i = 0;
+                dvgInStockHistory.Rows.Clear();
+                cn.Open();
+                cmd = new MySqlCommand("SELECT * FROM vwStockIn WHERE CAST(sdate AS date) BETWEEN '" + dtFrom.Value.ToString("yyyy-MM-dd") + "' AND '" + dtTo.Value.ToString("yyyy-MM-dd") + "' AND status LIKE 'Done'", cn);
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    i++;
+                    dvgInStockHistory.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), DateTime.Parse(dr[5].ToString()).ToShortDateString(), dr[6].ToString(), dr["supplier"].ToString());
+                }
+                dr.Close();
+                cn.Close();
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
     }
 }

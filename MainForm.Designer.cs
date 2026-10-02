@@ -411,22 +411,24 @@
             this.lblName.Size = new System.Drawing.Size(30, 21);
             this.lblName.TabIndex = 2;
             this.lblName.Text = "Ln";
+            this.lblName.Visible = false;
             // 
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
             this.lblUsername.ForeColor = System.Drawing.Color.White;
-            this.lblUsername.Location = new System.Drawing.Point(45, 101);
+            this.lblUsername.Location = new System.Drawing.Point(49, 112);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(92, 21);
             this.lblUsername.TabIndex = 1;
             this.lblUsername.Text = "Username";
+            this.lblUsername.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblRole
             // 
             this.lblRole.AutoSize = true;
             this.lblRole.ForeColor = System.Drawing.Color.White;
-            this.lblRole.Location = new System.Drawing.Point(45, 133);
+            this.lblRole.Location = new System.Drawing.Point(35, 146);
             this.lblRole.Name = "lblRole";
             this.lblRole.Size = new System.Drawing.Size(114, 21);
             this.lblRole.TabIndex = 0;
@@ -437,7 +439,7 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(39, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(102, 95);
+            this.pictureBox1.Size = new System.Drawing.Size(102, 85);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
@@ -447,7 +449,7 @@
             this.panelTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitle.Location = new System.Drawing.Point(200, 0);
             this.panelTitle.Name = "panelTitle";
-            this.panelTitle.Size = new System.Drawing.Size(1102, 40);
+            this.panelTitle.Size = new System.Drawing.Size(1128, 40);
             this.panelTitle.TabIndex = 1;
             // 
             // lblTitle
@@ -467,7 +469,7 @@
             this.panelMain.ForeColor = System.Drawing.Color.Black;
             this.panelMain.Location = new System.Drawing.Point(200, 40);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(1102, 893);
+            this.panelMain.Size = new System.Drawing.Size(1128, 893);
             this.panelMain.TabIndex = 2;
             // 
             // MainForm
@@ -475,7 +477,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
-            this.ClientSize = new System.Drawing.Size(1302, 933);
+            this.ClientSize = new System.Drawing.Size(1328, 933);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.panelTitle);
             this.Controls.Add(this.panelSlide);
@@ -527,9 +529,9 @@
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblRole;
-        private System.Windows.Forms.Label lblUsername;
-        private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblTitle;
+        public System.Windows.Forms.Label lblUsername;
+        public System.Windows.Forms.Label lblName;
     }
 }
 

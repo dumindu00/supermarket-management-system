@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using MySqlX.XDevAPI.Relational;
 
@@ -14,6 +15,8 @@ namespace POSales
 
         MySqlConnection cn;
         MySqlCommand cmd;
+
+        MySqlDataReader dr;
 
 
         private string connectionString = "server=localhost;database=DBPOSale;user=root;password=foodcity123;";
@@ -35,6 +38,40 @@ namespace POSales
             }
 
             return table;
+        }
+
+        public void ExecuteQuery(String sql)
+        {
+            try
+            {
+                cn = GetConnection();
+                cn.Open();
+                cmd = new MySqlCommand(sql, cn);
+                cmd.ExecuteNonQuery();
+                cn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public string getPassword(string username)
+        {
+            string password = "";
+            cn = GetConnection();
+            cn.Open();
+            cmd = new MySqlCommand("SELECT password FROM tbUser WHERE username = '" + username + "'", cn);
+            dr = cmd.ExecuteReader();
+            dr.Read();
+            if (dr.HasRows) 
+            {
+                password = dr["password"].ToString();
+            }
+            dr.Close();
+            cn.Close();
+            return password;
+
         }
     }
 }
