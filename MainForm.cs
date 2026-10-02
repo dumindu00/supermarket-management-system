@@ -18,6 +18,7 @@ namespace POSales
         MySqlConnection cn;
         MySqlCommand cmd;
         DBConnect dbcon = new DBConnect();
+        public string _pass;
 
         public MainForm()
         {
@@ -136,6 +137,7 @@ namespace POSales
 
         private void btnStockAdjustment_Click(object sender, EventArgs e)
         {
+            openChildForm(new Adjustments(this));
             hideSubmenue();
         }
 
@@ -152,6 +154,8 @@ namespace POSales
 
         private void btnSaleHist_Click(object sender, EventArgs e)
         {
+            DailySale dailySale = new DailySale();
+            dailySale.ShowDialog();
             hideSubmenue();
         }
 
@@ -167,18 +171,27 @@ namespace POSales
 
         private void btnUser_Click(object sender, EventArgs e)
         {   
-            openChildForm(new UserAccount());
+            openChildForm(new UserAccount(this));
             hideSubmenue() ;
         }
 
         private void btnStore_Click(object sender, EventArgs e)
         {
             hideSubmenue();
+            Store store = new Store();
+            store.ShowDialog();
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
             hideSubmenue();
+
+            if (MessageBox.Show("Logout Application ?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                this.Hide();
+                Login login = new Login();
+                login.ShowDialog();
+            }
         }
 
     }

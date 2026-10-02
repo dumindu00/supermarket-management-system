@@ -174,6 +174,7 @@
             // btnClear
             // 
             this.btnClear.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnClear.Enabled = false;
             this.btnClear.FlatAppearance.BorderSize = 0;
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.ForeColor = System.Drawing.Color.White;
@@ -191,6 +192,7 @@
             // btnSettle
             // 
             this.btnSettle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSettle.Enabled = false;
             this.btnSettle.FlatAppearance.BorderSize = 0;
             this.btnSettle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSettle.ForeColor = System.Drawing.Color.White;
@@ -208,6 +210,7 @@
             // btnDiscount
             // 
             this.btnDiscount.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnDiscount.Enabled = false;
             this.btnDiscount.FlatAppearance.BorderSize = 0;
             this.btnDiscount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDiscount.ForeColor = System.Drawing.Color.White;
@@ -562,6 +565,7 @@
             this.dgvCash.RowTemplate.Height = 24;
             this.dgvCash.Size = new System.Drawing.Size(759, 656);
             this.dgvCash.TabIndex = 4;
+            this.dgvCash.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCash_CellContentClick);
             this.dgvCash.SelectionChanged += new System.EventHandler(this.dgvCash_SelectionChanged);
             // 
             // Column1
@@ -578,7 +582,8 @@
             this.Column2.HeaderText = "Id";
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
-            this.Column2.Width = 51;
+            this.Column2.Visible = false;
+            this.Column2.Width = 53;
             // 
             // Column3
             // 
@@ -715,10 +720,26 @@
         private System.Windows.Forms.Button btnDiscount;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label lblname;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox picClose;
         private System.Windows.Forms.Panel panelSlide;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblDate;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblTimer;
+        private System.Windows.Forms.Timer timer1;
+        public System.Windows.Forms.Label lblUsername;
+        public System.Windows.Forms.Label lblTranNo;
+        private System.Windows.Forms.TextBox txtQty;
+        public System.Windows.Forms.TextBox txtBarcode;
+        public System.Windows.Forms.DataGridView dgvCash;
+        public System.Windows.Forms.Label lblDisplayTotal;
+        public System.Windows.Forms.Label lblname;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -730,25 +751,9 @@
         private System.Windows.Forms.DataGridViewImageColumn colAdd;
         private System.Windows.Forms.DataGridViewImageColumn colReduce;
         private System.Windows.Forms.DataGridViewImageColumn Delete;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label lblDate;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label lblSaleTotal;
-        private System.Windows.Forms.Label lblDiscount;
-        private System.Windows.Forms.Label lblTimer;
-        private System.Windows.Forms.Label lblVatable;
-        private System.Windows.Forms.Label lblVat;
-        private System.Windows.Forms.Timer timer1;
-        public System.Windows.Forms.Label lblUsername;
-        public System.Windows.Forms.Label lblTranNo;
-        private System.Windows.Forms.TextBox txtQty;
-        public System.Windows.Forms.TextBox txtBarcode;
-        public System.Windows.Forms.DataGridView dgvCash;
-        public System.Windows.Forms.Label lblDisplayTotal;
+        public System.Windows.Forms.Label lblSaleTotal;
+        public System.Windows.Forms.Label lblDiscount;
+        public System.Windows.Forms.Label lblVatable;
+        public System.Windows.Forms.Label lblVat;
     }
 }

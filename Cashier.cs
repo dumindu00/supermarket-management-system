@@ -1,10 +1,12 @@
 ﻿using MySql.Data.MySqlClient;
+using Mysqlx.Crud;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -92,21 +94,54 @@ namespace POSales
         private void btnClear_Click(object sender, EventArgs e)
         {
             slide(btnClear);
+            if (MessageBox.Show("Remove all items from cart?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                cn.Open();
+                cmd = new MySqlCommand("DELETE FROM tbCart WHERE transno LIKE'" + lblTranNo.Text + "'", cn);
+                cmd.ExecuteNonQuery();
+                cn.Close();
+                MessageBox.Show("All items has been successfully remove", "Remove item", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadCart();
+            }
         }
 
         private void btnDSales_Click(object sender, EventArgs e)
         {
             slide(btnDSales);
+            DailySale dailySale = new DailySale();
+            dailySale.solduser = lblUsername.Text;
+
+            dailySale.dtFrom.Value = DateTime.Today;
+            dailySale.dtTo.Value = DateTime.Today.AddDays(1).AddSeconds(-1);
+
+            dailySale.dtFrom.Enabled = false;
+            dailySale.dtTo.Enabled = false;
+            dailySale.cboCashier.Enabled = false;
+            dailySale.cboCashier.Text = lblUsername.Text;
+            dailySale.ShowDialog();
         }
 
         private void btnPass_Click(object sender, EventArgs e)
         {
             slide(btnPass);
+            ChangePassword change = new ChangePassword(this);
+            change.ShowDialog();
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
             slide(btnLogout);
+            if(dgvCash.Rows.Count > 0)
+            {
+                MessageBox.Show("Unable to logout. Please cancel the transaction.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (MessageBox.Show("Logout Application ?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                this.Hide();
+                Login login = new Login();
+                login.ShowDialog();
+            }
         }
 
         #endregion button
@@ -116,7 +151,7 @@ namespace POSales
             try
             {
 
-
+                Boolean hascart = false;
                 int i = 0;
                 double total = 0;
                 double discount = 0;
@@ -131,12 +166,15 @@ namespace POSales
                     total += Convert.ToDouble(dr["total"].ToString());
                     discount += Convert.ToDouble(dr["disc"].ToString());
                     dgvCash.Rows.Add(i, dr["id"].ToString(), dr["pcode"].ToString(), dr["pdesc"].ToString(), dr["price"].ToString(), dr["qty"].ToString(), dr["disc"].ToString(), double.Parse(dr["total"].ToString()).ToString("#.##0.00"));
+                    hascart = true;
                 }
                 dr.Close();
                 cn.Close();
                 lblSaleTotal.Text = total.ToString("#.##0.00");
                 lblDiscount.Text = discount.ToString("#.##0.00");
                 GetCartTotal();
+                if (hascart) { btnClear.Enabled = true; btnSettle.Enabled = true; btnDiscount.Enabled = true; }
+                else { btnClear.Enabled = false; btnSettle.Enabled = false; btnDiscount.Enabled = false; }
 
 
             }
@@ -172,7 +210,7 @@ namespace POSales
 
             try
             {
-                string sdate = DateTime.Now.ToString("yyyymmdd");
+                string sdate = DateTime.Now.ToString("yyyyMMdd");
                 int count;
                 string transno;
                 cn.Open();
@@ -269,7 +307,7 @@ namespace POSales
                 {
                     if (qty < (int.Parse(txtQty.Text) + cart_qty))
                     {
-                        MessageBox.Show("Unable to Procced. Remaining qty on hand is" + qty, "Waring", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Unable to Procced. Remaining quantity on hand is" + qty, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
                     cn.Open();
@@ -294,9 +332,8 @@ namespace POSales
                     cmd.Parameters.AddWithValue("@pcode", _pcode);
                     cmd.Parameters.AddWithValue("@price", _price);
                     cmd.Parameters.AddWithValue("@qty", _qty);
-                    cmd.Parameters.AddWithValue("@qty", 1);
                     cmd.Parameters.AddWithValue("@sdate", DateTime.Now);
-                    cmd.Parameters.AddWithValue("@casheir", lblUsername.Text);
+                    cmd.Parameters.AddWithValue("@cashier", lblUsername.Text);
                     cmd.ExecuteNonQuery();
                     cn.Close();
                     LoadCart();
@@ -314,6 +351,75 @@ namespace POSales
             int i = dgvCash.CurrentRow.Index;
             id = dgvCash[1, i].Value.ToString();
             price = dgvCash[7, i].Value.ToString();
+        }
+
+        private void dgvCash_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string colName = dgvCash.Columns[e.ColumnIndex].Name;
+            
+
+
+            if (colName=="Delete")
+            {
+
+
+               
+
+                MessageBox.Show(dgvCash.Columns[e.ColumnIndex].Name);
+
+                if (MessageBox.Show("Remove this item", "Remove item", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    dbcon.ExecuteQuery("DELETE FROM tbCart WHERE id LIKE'" + dgvCash.Rows[e.RowIndex].Cells[1].Value.ToString() + "'");
+                    MessageBox.Show("Items has been successfully remove", "Remove item", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadCart();
+                }
+            }
+            else if(colName=="colAdd")
+            {
+
+                int i = 0;
+                cn.Open();
+                cmd = new MySqlCommand("SELECT SUM(qty) as qty FROM tbProduct WHERE pcode LIKE '" + dgvCash.Rows[e.RowIndex].Cells[2].Value.ToString() + "' GROUP BY pcode", cn);
+                i = int.Parse(cmd.ExecuteScalar().ToString());
+                cn.Close();
+
+
+                if (int.Parse(dgvCash.Rows[e.RowIndex].Cells[5].Value.ToString())<i)
+                {
+                    dbcon.ExecuteQuery("UPDATE tbCart SET qty = qty + " + int.Parse(txtQty.Text) + " WHERE transno LIKE '" + lblTranNo.Text + "' AND pcode LIKE '" + dgvCash.Rows[e.RowIndex].Cells[2].Value.ToString() + "'");
+                    LoadCart();
+                }
+                else 
+                {
+                    MessageBox.Show("Remaining qty on hand is " + i + "!", "Out of Stock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                    
+                }
+            }
+
+
+
+            else if (colName == "colReduce")
+            {
+
+                int i = 0;
+                cn.Open();
+                cmd = new MySqlCommand("SELECT SUM(qty) as qty FROM tbCart WHERE pcode LIKE '" + dgvCash.Rows[e.RowIndex].Cells[2].Value.ToString() + "' GROUP BY pcode", cn);
+                i = int.Parse(cmd.ExecuteScalar().ToString());
+                cn.Close();
+
+
+                if (i > 1)
+                {
+                    dbcon.ExecuteQuery("UPDATE tbCart SET qty = qty - " + int.Parse(txtQty.Text) + " WHERE transno LIKE '" + lblTranNo.Text + "' AND pcode LIKE '" + dgvCash.Rows[e.RowIndex].Cells[2].Value.ToString() + "'");
+                    LoadCart();
+                }
+                else
+                {
+                    MessageBox.Show("Remaining qty on cart is " + i + "!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
         }
     }
 }
