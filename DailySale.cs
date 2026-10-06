@@ -21,11 +21,14 @@ namespace POSales
         MySqlDataReader dr;
         public string solduser;
 
+        MainForm main;
 
-        public DailySale()
+
+        public DailySale(MainForm mn)
         {
             InitializeComponent();
             cn = dbcon.GetConnection();
+            main = mn;
             LoadCashier();
         }
 
@@ -155,6 +158,8 @@ namespace POSales
         }
 
 
+
+
         //private void btnPrint_Click(object sender, EventArgs e)
         //{
         //    POSReport report = new POSReport();
@@ -197,5 +202,30 @@ namespace POSales
 
         //    report.ShowDialog();
         //}
+
+        private void dgvSold_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            string colName = dgvSold.Columns[e.ColumnIndex].Name;
+            if (colName == "Cancel")
+            {
+                CancelOrder cancel = new CancelOrder(this);
+                cancel.txtId.Text = dgvSold.Rows[e.RowIndex].Cells[1].Value.ToString();
+                cancel.txtTransno.Text = dgvSold.Rows[e.RowIndex].Cells[2].Value.ToString();
+                cancel.txtPcode.Text = dgvSold.Rows[e.RowIndex].Cells[3].Value.ToString();
+                cancel.txtDesc.Text = dgvSold.Rows[e.RowIndex].Cells[4].Value.ToString();
+                cancel.txtPrice.Text = dgvSold.Rows[e.RowIndex].Cells[5].Value.ToString();
+                cancel.txtQty.Text = dgvSold.Rows[e.RowIndex].Cells[6].Value.ToString();
+                cancel.txtDisc.Text = dgvSold.Rows[e.RowIndex].Cells[7].Value.ToString();
+                cancel.txtTotal.Text = dgvSold.Rows[e.RowIndex].Cells[8].Value.ToString();
+                
+                if (lblTitle.Visible==false)
+                    cancel.txtCancelBy.Text = main.lblUsername.Text;
+                else
+                            cancel.txtCancelBy.Text = solduser;
+                cancel.ShowDialog();
+
+
+            }
+        }
     }
 }

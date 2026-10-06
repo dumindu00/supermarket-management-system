@@ -154,13 +154,16 @@ namespace POSales
 
         private void btnSaleHist_Click(object sender, EventArgs e)
         {
-            DailySale dailySale = new DailySale();
-            dailySale.ShowDialog();
+
+            openChildForm(new DailySale(this));
+            //DailySale daily = new DailySale();
+            //daily.solduser = lblUsername.Text;
             hideSubmenue();
         }
 
         private void btnPosRecord_Click(object sender, EventArgs e)
         {
+            openChildForm(new Record());
             hideSubmenue();
         }
 

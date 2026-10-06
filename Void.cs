@@ -35,6 +35,13 @@ namespace POSales
         {
             try
             {
+                if (txtUsername.Text.ToLower() == cancelOrder.txtCancelBy.Text.ToLower())
+                {
+                    MessageBox.Show("Void by name and cacelled by name are same!. Please void by another person.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+
                 string user;
                 cn.Open();
                 cmd = new MySqlCommand("SELECT * FROM tbUser WHERE username = @username and password = @password", cn);

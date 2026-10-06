@@ -245,6 +245,12 @@
     <Compile Include="Recept.Designer.cs">
       <DependentUpon>Recept.cs</DependentUpon>
     </Compile>
+    <Compile Include="Record.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Record.Designer.cs">
+      <DependentUpon>Record.cs</DependentUpon>
+    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="UserProperties.cs">
       <SubType>Form</SubType>
@@ -360,6 +366,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Recept.resx">
       <DependentUpon>Recept.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Record.resx">
+      <DependentUpon>Record.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="rptRecept.rdlc" />
     <EmbeddedResource Include="rptSoldReport.rdlc" />

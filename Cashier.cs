@@ -108,7 +108,7 @@ namespace POSales
         private void btnDSales_Click(object sender, EventArgs e)
         {
             slide(btnDSales);
-            DailySale dailySale = new DailySale();
+            DailySale dailySale = new DailySale(new MainForm());
             dailySale.solduser = lblUsername.Text;
 
             dailySale.dtFrom.Value = DateTime.Today;
@@ -118,6 +118,8 @@ namespace POSales
             dailySale.dtTo.Enabled = false;
             dailySale.cboCashier.Enabled = false;
             dailySale.cboCashier.Text = lblUsername.Text;
+            dailySale.picClose.Visible = true;
+            dailySale.lblTitle.Visible = true;
             dailySale.ShowDialog();
         }
 
