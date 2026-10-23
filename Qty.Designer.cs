@@ -35,7 +35,7 @@
             // 
             this.txtQty.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtQty.Location = new System.Drawing.Point(0, 0);
-            this.txtQty.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtQty.Margin = new System.Windows.Forms.Padding(6);
             this.txtQty.Multiline = true;
             this.txtQty.Name = "txtQty";
             this.txtQty.Size = new System.Drawing.Size(224, 63);
@@ -52,12 +52,14 @@
             this.Controls.Add(this.txtQty);
             this.Font = new System.Drawing.Font("Times New Roman", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.KeyPreview = true;
+            this.Margin = new System.Windows.Forms.Padding(8);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Qty";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Qty";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Qty_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -128,5 +128,13 @@ namespace POSales
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void ProductModule_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Dispose();
+            }
+        }
     }
 }

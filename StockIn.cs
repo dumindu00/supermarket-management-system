@@ -51,6 +51,22 @@ namespace POSales
         }
 
 
+        public void ProductForSupplier(string pcode)
+        {
+            string supplier = "";
+            cn.Open();
+            cmd = new MySqlCommand("SELECT * FROM vwStockIn pcode LIKE '" + pcode + "'", cn);
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                supplier = dr["supplier"].ToString();
+            }
+            dr.Close();
+            cn.Close();
+            cbSupplier.Text = supplier;
+        }
+
+
         public void LoadStockIn()
         {
             int i = 0;
@@ -74,7 +90,7 @@ namespace POSales
             cmd = new MySqlCommand("SELECT * FROM tbSupplier WHERE supplier LIKE '" + cbSupplier.Text + "'", cn);
             dr = cmd.ExecuteReader();
             dr.Read();
-            if(dr.HasRows)
+            if (dr.HasRows)
             {
                 lblId.Text = dr["id"].ToString();
                 txtConPerson.Text = dr["contactperson"].ToString();
@@ -82,7 +98,6 @@ namespace POSales
             }
             dr.Close();
             cn.Close();
-
         }
 
         private void cbSupplier_KeyPress(object sender, KeyPressEventArgs e)
@@ -113,14 +128,35 @@ namespace POSales
                         for (int i = 0; i < dgvStockIn.Rows.Count; i++)
                         {
                             // upadte product quantitiy
+                            //cn.Open();
+                            //cmd = new MySqlCommand("UPDATE tbProduct SET qty = qty + " + int.Parse(dgvStockIn.Rows[i].Cells[5].Value.ToString()) + " WHERE pcode = '" + dgvStockIn.Rows[i].Cells[2].Value.ToString() + "'", cn);
+                            //cmd.ExecuteNonQuery();
+                            //cn.Close();
+
+
+
+                            // update product quantity
                             cn.Open();
-                            cmd = new MySqlCommand("UPDATE tbProduct SET qty = qty + " + int.Parse(dgvStockIn.Rows[i].Cells[5].Value.ToString()) + " WHERE pcode LIKE '" + dgvStockIn.Rows[i].Cells[3].Value.ToString() + "'", cn);
+                            cmd = new MySqlCommand(
+                                "UPDATE tbProduct SET qty = COALESCE(qty, 0) + " +
+                                int.Parse(dgvStockIn.Rows[i].Cells[5].Value.ToString()) +
+                                " WHERE pcode = '" +
+                                dgvStockIn.Rows[i].Cells[3].Value.ToString() + "'", cn);
+
                             cmd.ExecuteNonQuery();
                             cn.Close();
+
+
+
+
+
+
+
 
                             // update stockin quantity
                             cn.Open();
                             cmd = new MySqlCommand("UPDATE tbStockIn SET qty = qty + " + int.Parse(dgvStockIn.Rows[i].Cells[5].Value.ToString()) + ", status='Done' WHERE id LIKE '" + dgvStockIn.Rows[i].Cells[1].Value.ToString() + "'", cn);
+                            cmd.ExecuteNonQuery();
                             cn.Close();
                         }
                         Clear();
@@ -185,6 +221,22 @@ namespace POSales
             }
         }
 
+        private void cbSupplier_TextChanged(object sender, EventArgs e)
+        {
 
+            cn.Open();
+            cmd = new MySqlCommand("SELECT * FROM tbSupplier WHERE supplier LIKE '" + cbSupplier.Text + "'", cn);
+            dr = cmd.ExecuteReader();
+            dr.Read();
+            if (dr.HasRows)
+            {
+                lblId.Text = dr["id"].ToString();
+                txtConPerson.Text = dr["contactperson"].ToString();
+                txtAdress.Text = dr["address"].ToString();
+            }
+            dr.Close();
+            cn.Close();
+
+        }
     }
 }

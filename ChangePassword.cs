@@ -82,5 +82,13 @@ namespace POSales
                 MessageBox.Show(ex.Message, "Error");
             }
         }
+
+        private void ChangePassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Dispose();
+            }
+        }
     }
 }

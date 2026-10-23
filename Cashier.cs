@@ -10,6 +10,8 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ZXing;
+using DarrenLee.Media;
 
 namespace POSales
 {
@@ -27,6 +29,8 @@ namespace POSales
         string id;
         string price;
 
+        Camera captureDevice = new Camera();
+
 
         string stitle = "Point of Sale";
 
@@ -40,6 +44,7 @@ namespace POSales
             InitializeComponent();
             cn = dbcon.GetConnection();
             GetTranNo();
+            lblDate.Text = DateTime.Now.ToShortDateString();
         }
 
         private void picClose_Click(object sender, EventArgs e)
@@ -422,6 +427,56 @@ namespace POSales
                     return;
                 }
             }
+        }
+
+
+        public void Noti()
+        {
+            int i = 0;
+            cn.Open();
+            cmd = new MySqlCommand("SELECT * FROM vwCriticalItems", cn);
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                i++;
+                Alert alert = new Alert(new MainForm());
+                alert.lblPcode.Text = dr["pcode"].ToString();
+                
+                alert.showAlert(i + ", " + dr["pdesc"].ToString() + " - " + dr["qty"].ToString());
+            }
+            dr.Close();
+            cn.Close();
+        }
+
+        private void Cashier_Load(object sender, EventArgs e)
+        {
+            Noti();
+        }
+
+        private void Cashier_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F8) 
+            {
+                captureDevice.OnFrameArrived += captureDevice_OnFrameArrived;
+                captureDevice.Start();
+            }
+        }
+
+        private void captureDevice_OnFrameArrived(object source, FrameArrivedEventArgs e)
+        {
+            Bitmap bitmap = (Bitmap)e.GetFrame();
+            BarcodeReader barcodeReader = new BarcodeReader();
+            var result = barcodeReader.Decode(bitmap);
+            if (result != null) 
+            {
+                txtBarcode.Invoke(new MethodInvoker(delegate ()
+                { txtBarcode.Text = result.ToString(); }));
+            }
+        }
+
+        private void Cashier_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            captureDevice.Stop();
         }
     }
 }

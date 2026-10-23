@@ -73,5 +73,18 @@ namespace POSales
             return password;
 
         }
+
+        public double ExtractData(string sql)
+        {
+            
+            cn = new MySqlConnection();
+            cn = GetConnection();
+            cn.Open();
+            cmd = new MySqlCommand(sql, cn);
+            double date = double.Parse(cmd.ExecuteScalar().ToString());
+            cn.Close();
+            return date;
+
+        }
     }
 }

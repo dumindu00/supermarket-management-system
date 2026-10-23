@@ -90,5 +90,14 @@ namespace POSales
         {
             this.Dispose();
         }
+
+        private void CategoryModule_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Dispose();
+            }
+                    
+        }
     }
 }
