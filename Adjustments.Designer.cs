@@ -29,26 +29,26 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Adjustments));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtSearch = new MetroFramework.Controls.MetroTextBox();
             this.btnSave = new System.Windows.Forms.Button();
+            this.txtSearch = new MetroFramework.Controls.MetroTextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lblUsername = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.lblRefNo = new System.Windows.Forms.Label();
-            this.lblDesc = new System.Windows.Forms.Label();
-            this.lblPcode = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.cbAction = new System.Windows.Forms.ComboBox();
-            this.txtQty = new System.Windows.Forms.TextBox();
             this.txtRemark = new System.Windows.Forms.TextBox();
+            this.txtQty = new System.Windows.Forms.TextBox();
+            this.cbAction = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lblPcode = new System.Windows.Forms.Label();
+            this.lblDesc = new System.Windows.Forms.Label();
+            this.lblRefNo = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblUsername = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dgvAdjustment = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,21 +74,24 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 476);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1077, 87);
+            this.panel1.Size = new System.Drawing.Size(992, 87);
             this.panel1.TabIndex = 4;
             // 
-            // label1
+            // btnSave
             // 
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
-            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(12, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(188, 42);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Stock Adjustment";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSave.BackColor = System.Drawing.Color.DimGray;
+            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.Location = new System.Drawing.Point(873, 30);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(87, 34);
+            this.btnSave.TabIndex = 13;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // txtSearch
             // 
@@ -108,7 +111,7 @@
             this.txtSearch.DisplayIcon = true;
             this.txtSearch.Icon = ((System.Drawing.Image)(resources.GetObject("txtSearch.Icon")));
             this.txtSearch.Lines = new string[0];
-            this.txtSearch.Location = new System.Drawing.Point(294, 30);
+            this.txtSearch.Location = new System.Drawing.Point(301, 30);
             this.txtSearch.MaxLength = 32767;
             this.txtSearch.Multiline = true;
             this.txtSearch.Name = "txtSearch";
@@ -127,21 +130,18 @@
             this.txtSearch.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
-            // btnSave
+            // label1
             // 
-            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Enabled = false;
-            this.btnSave.FlatAppearance.BorderSize = 0;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(978, 30);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(87, 34);
-            this.btnSave.TabIndex = 13;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label1.Location = new System.Drawing.Point(12, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(188, 42);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Stock Adjustment";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // panel2
             // 
@@ -162,63 +162,76 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1077, 144);
+            this.panel2.Size = new System.Drawing.Size(992, 144);
             this.panel2.TabIndex = 5;
             // 
-            // pictureBox1
+            // txtRemark
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(55, 50);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.txtRemark.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtRemark.Location = new System.Drawing.Point(663, 108);
+            this.txtRemark.Name = "txtRemark";
+            this.txtRemark.Size = new System.Drawing.Size(317, 28);
+            this.txtRemark.TabIndex = 13;
             // 
-            // lblUsername
+            // txtQty
             // 
-            this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(73, 42);
-            this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(87, 20);
-            this.lblUsername.TabIndex = 1;
-            this.lblUsername.Text = " Username";
+            this.txtQty.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtQty.Location = new System.Drawing.Point(663, 65);
+            this.txtQty.Name = "txtQty";
+            this.txtQty.Size = new System.Drawing.Size(317, 28);
+            this.txtQty.TabIndex = 12;
             // 
-            // label2
+            // cbAction
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 84);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(118, 20);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Reference No :";
+            this.cbAction.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbAction.FormattingEnabled = true;
+            this.cbAction.Items.AddRange(new object[] {
+            "Remove From Inventory",
+            "Add To Inventory"});
+            this.cbAction.Location = new System.Drawing.Point(663, 22);
+            this.cbAction.Name = "cbAction";
+            this.cbAction.Size = new System.Drawing.Size(317, 28);
+            this.cbAction.TabIndex = 11;
             // 
-            // label3
+            // label7
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 115);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 20);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Description :";
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(567, 111);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(82, 20);
+            this.label7.TabIndex = 10;
+            this.label7.Text = "Remarks :";
             // 
-            // label4
+            // label6
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(380, 84);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(68, 20);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Pcode : ";
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(567, 68);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(45, 20);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "Qty :";
             // 
-            // lblRefNo
+            // label5
             // 
-            this.lblRefNo.AutoSize = true;
-            this.lblRefNo.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRefNo.Location = new System.Drawing.Point(136, 84);
-            this.lblRefNo.Name = "lblRefNo";
-            this.lblRefNo.Size = new System.Drawing.Size(57, 20);
-            this.lblRefNo.TabIndex = 5;
-            this.lblRefNo.Text = "RefNo";
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(567, 25);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(65, 20);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Action :";
+            // 
+            // lblPcode
+            // 
+            this.lblPcode.AutoSize = true;
+            this.lblPcode.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPcode.Location = new System.Drawing.Point(391, 84);
+            this.lblPcode.Name = "lblPcode";
+            this.lblPcode.Size = new System.Drawing.Size(109, 20);
+            this.lblPcode.TabIndex = 7;
+            this.lblPcode.Text = "Product Code";
             // 
             // lblDesc
             // 
@@ -230,87 +243,74 @@
             this.lblDesc.TabIndex = 6;
             this.lblDesc.Text = "Product Detail";
             // 
-            // lblPcode
+            // lblRefNo
             // 
-            this.lblPcode.AutoSize = true;
-            this.lblPcode.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPcode.Location = new System.Drawing.Point(444, 84);
-            this.lblPcode.Name = "lblPcode";
-            this.lblPcode.Size = new System.Drawing.Size(109, 20);
-            this.lblPcode.TabIndex = 7;
-            this.lblPcode.Text = "Product Code";
+            this.lblRefNo.AutoSize = true;
+            this.lblRefNo.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRefNo.Location = new System.Drawing.Point(136, 84);
+            this.lblRefNo.Name = "lblRefNo";
+            this.lblRefNo.Size = new System.Drawing.Size(57, 20);
+            this.lblRefNo.TabIndex = 5;
+            this.lblRefNo.Text = "RefNo";
             // 
-            // label5
+            // label4
             // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(652, 25);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(65, 20);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Action :";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(327, 84);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(68, 20);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Pcode : ";
             // 
-            // label6
+            // label3
             // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(652, 68);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(45, 20);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "Qty :";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 115);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(100, 20);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Description :";
             // 
-            // label7
+            // label2
             // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(652, 111);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(82, 20);
-            this.label7.TabIndex = 10;
-            this.label7.Text = "Remarks :";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 84);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(118, 20);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Reference No :";
             // 
-            // cbAction
+            // lblUsername
             // 
-            this.cbAction.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbAction.FormattingEnabled = true;
-            this.cbAction.Items.AddRange(new object[] {
-            "Remove From Inventory",
-            "Add To Inventory"});
-            this.cbAction.Location = new System.Drawing.Point(748, 22);
-            this.cbAction.Name = "cbAction";
-            this.cbAction.Size = new System.Drawing.Size(317, 28);
-            this.cbAction.TabIndex = 11;
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Location = new System.Drawing.Point(73, 42);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(87, 20);
+            this.lblUsername.TabIndex = 1;
+            this.lblUsername.Text = " Username";
             // 
-            // txtQty
+            // pictureBox1
             // 
-            this.txtQty.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtQty.Location = new System.Drawing.Point(748, 65);
-            this.txtQty.Name = "txtQty";
-            this.txtQty.Size = new System.Drawing.Size(317, 28);
-            this.txtQty.TabIndex = 12;
-            // 
-            // txtRemark
-            // 
-            this.txtRemark.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtRemark.Location = new System.Drawing.Point(748, 108);
-            this.txtRemark.Name = "txtRemark";
-            this.txtRemark.Size = new System.Drawing.Size(317, 28);
-            this.txtRemark.TabIndex = 13;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(55, 50);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // dgvAdjustment
             // 
             this.dgvAdjustment.AllowUserToAddRows = false;
             this.dgvAdjustment.BackgroundColor = System.Drawing.Color.White;
             this.dgvAdjustment.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAdjustment.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAdjustment.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvAdjustment.ColumnHeadersHeight = 30;
             this.dgvAdjustment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvAdjustment.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -330,7 +330,7 @@
             this.dgvAdjustment.RowHeadersVisible = false;
             this.dgvAdjustment.RowHeadersWidth = 51;
             this.dgvAdjustment.RowTemplate.Height = 24;
-            this.dgvAdjustment.Size = new System.Drawing.Size(1077, 332);
+            this.dgvAdjustment.Size = new System.Drawing.Size(992, 332);
             this.dgvAdjustment.TabIndex = 6;
             this.dgvAdjustment.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAdjustment_CellContentClick);
             // 
@@ -411,13 +411,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1077, 563);
+            this.ClientSize = new System.Drawing.Size(992, 563);
+            this.ControlBox = false;
             this.Controls.Add(this.dgvAdjustment);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Adjustments";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Adjustments";
@@ -435,7 +436,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private MetroFramework.Controls.MetroTextBox txtSearch;
-        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -461,5 +461,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewImageColumn Select;
+        public System.Windows.Forms.Button btnSave;
     }
 }

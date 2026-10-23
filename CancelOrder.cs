@@ -63,5 +63,13 @@ namespace POSales
         {
             e.Handled = true;
         }
+
+        private void CancelOrder_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Dispose();
+            }
+        }
     }
 }

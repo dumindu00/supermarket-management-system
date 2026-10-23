@@ -86,17 +86,53 @@ namespace POSales
                     }
                     catch (Exception ex)
                     {
-
-                        MessageBox.Show(ex.Message, stitle);
+                        addStockIn(dgvProduct.Rows[e.RowIndex].Cells[1].Value.ToString());
+                        MessageBox.Show("Successfully added", stitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
 
             }
         }
 
+
+        public void addStockIn(string pcode)
+        {
+
+            try
+            {
+                cn.Open();
+                cmd = new MySqlCommand("INSERT INTO tbStockIn (refno, pcode, sdate, stockinby, supplierId)VALUES (@refno, @pcode, @sdate, @stockinby, @supplierId)", cn);
+                cmd.Parameters.AddWithValue("@refno", stockIn.txtRefNo.Text);
+                cmd.Parameters.AddWithValue("@pcode", pcode);
+                cmd.Parameters.AddWithValue("@sdate", stockIn.dtStockIn.Value);
+                cmd.Parameters.AddWithValue("@stockinby", stockIn.txtStockInBy.Text);
+                cmd.Parameters.AddWithValue("@supplierId", stockIn.lblId.Text);
+                cmd.ExecuteNonQuery();
+                cn.Close();
+                stockIn.LoadStockIn();
+                
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, stitle);
+            }
+
+        }
+
+
+
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             LoadProduct();
+        }
+
+        private void ProductStockIn_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Dispose();
+            }
         }
     }
 }

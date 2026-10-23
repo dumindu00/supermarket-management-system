@@ -97,6 +97,7 @@ namespace POSales
                         main.lblUsername.Text = _username;
                         main.lblName.Text = _name;
                         main._pass = _pass;
+                     
                         main.ShowDialog();
                     }
                 }

@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StockIn));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
@@ -95,9 +95,9 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 520);
+            this.panel1.Location = new System.Drawing.Point(0, 536);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1105, 73);
+            this.panel1.Size = new System.Drawing.Size(1078, 50);
             this.panel1.TabIndex = 3;
             // 
             // label1
@@ -106,7 +106,7 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(12, 22);
+            this.label1.Location = new System.Drawing.Point(12, 6);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(188, 42);
             this.label1.TabIndex = 0;
@@ -120,8 +120,8 @@
             this.metroTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.metroTabControl1.Location = new System.Drawing.Point(0, 0);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 1;
-            this.metroTabControl1.Size = new System.Drawing.Size(1105, 520);
+            this.metroTabControl1.SelectedIndex = 0;
+            this.metroTabControl1.Size = new System.Drawing.Size(1078, 536);
             this.metroTabControl1.TabIndex = 4;
             this.metroTabControl1.UseSelectable = true;
             // 
@@ -133,7 +133,7 @@
             this.tabPage1.Controls.Add(this.panel2);
             this.tabPage1.Location = new System.Drawing.Point(4, 38);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(1097, 478);
+            this.tabPage1.Size = new System.Drawing.Size(1070, 494);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Stock In";
             // 
@@ -144,24 +144,25 @@
             this.btnEntry.ForeColor = System.Drawing.Color.White;
             this.btnEntry.Location = new System.Drawing.Point(975, 445);
             this.btnEntry.Name = "btnEntry";
-            this.btnEntry.Size = new System.Drawing.Size(122, 41);
+            this.btnEntry.Size = new System.Drawing.Size(96, 41);
             this.btnEntry.TabIndex = 15;
             this.btnEntry.Text = "Entry";
             this.btnEntry.UseVisualStyleBackColor = false;
+            this.btnEntry.Click += new System.EventHandler(this.btnEntry_Click);
             // 
             // dgvStockIn
             // 
             this.dgvStockIn.AllowUserToAddRows = false;
             this.dgvStockIn.BackgroundColor = System.Drawing.Color.White;
             this.dgvStockIn.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvStockIn.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvStockIn.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvStockIn.ColumnHeadersHeight = 30;
             this.dgvStockIn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvStockIn.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -177,12 +178,12 @@
             this.Delete});
             this.dgvStockIn.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgvStockIn.EnableHeadersVisualStyles = false;
-            this.dgvStockIn.Location = new System.Drawing.Point(0, 169);
+            this.dgvStockIn.Location = new System.Drawing.Point(0, 161);
             this.dgvStockIn.Name = "dgvStockIn";
             this.dgvStockIn.RowHeadersVisible = false;
             this.dgvStockIn.RowHeadersWidth = 51;
             this.dgvStockIn.RowTemplate.Height = 24;
-            this.dgvStockIn.Size = new System.Drawing.Size(1097, 270);
+            this.dgvStockIn.Size = new System.Drawing.Size(1070, 252);
             this.dgvStockIn.TabIndex = 4;
             this.dgvStockIn.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStockIn_CellContentClick);
             // 
@@ -285,7 +286,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1097, 169);
+            this.panel2.Size = new System.Drawing.Size(1070, 161);
             this.panel2.TabIndex = 0;
             // 
             // txtAdress
@@ -309,7 +310,7 @@
             this.cbSupplier.Name = "cbSupplier";
             this.cbSupplier.Size = new System.Drawing.Size(305, 28);
             this.cbSupplier.TabIndex = 12;
-            this.cbSupplier.SelectedIndexChanged += new System.EventHandler(this.cbSupplier_SelectedIndexChanged);
+            this.cbSupplier.TextChanged += new System.EventHandler(this.cbSupplier_TextChanged);
             this.cbSupplier.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbSupplier_KeyPress);
             // 
             // lblId
@@ -428,7 +429,7 @@
             this.tabPage2.Controls.Add(this.dvgInStockHistory);
             this.tabPage2.Location = new System.Drawing.Point(4, 38);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(1097, 478);
+            this.tabPage2.Size = new System.Drawing.Size(1070, 494);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Stock In Record";
             // 
@@ -443,7 +444,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1097, 102);
+            this.panel3.Size = new System.Drawing.Size(1070, 85);
             this.panel3.TabIndex = 13;
             // 
             // btnLoad
@@ -452,9 +453,9 @@
             this.btnLoad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
             this.btnLoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLoad.ForeColor = System.Drawing.Color.White;
-            this.btnLoad.Location = new System.Drawing.Point(672, 32);
+            this.btnLoad.Location = new System.Drawing.Point(919, 26);
             this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Size = new System.Drawing.Size(125, 38);
+            this.btnLoad.Size = new System.Drawing.Size(125, 30);
             this.btnLoad.TabIndex = 12;
             this.btnLoad.Text = "Load Record";
             this.btnLoad.UseVisualStyleBackColor = false;
@@ -463,7 +464,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(394, 41);
+            this.label8.Location = new System.Drawing.Point(392, 34);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(29, 20);
             this.label8.TabIndex = 3;
@@ -473,7 +474,7 @@
             // 
             this.dtTo.CustomFormat = "dd/MM/yyyy";
             this.dtTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtTo.Location = new System.Drawing.Point(438, 35);
+            this.dtTo.Location = new System.Drawing.Point(436, 28);
             this.dtTo.Name = "dtTo";
             this.dtTo.Size = new System.Drawing.Size(200, 28);
             this.dtTo.TabIndex = 2;
@@ -482,7 +483,7 @@
             // 
             this.dtFrom.CustomFormat = "dd/MM/yyyy";
             this.dtFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtFrom.Location = new System.Drawing.Point(178, 35);
+            this.dtFrom.Location = new System.Drawing.Point(176, 28);
             this.dtFrom.Name = "dtFrom";
             this.dtFrom.Size = new System.Drawing.Size(200, 28);
             this.dtFrom.TabIndex = 1;
@@ -490,7 +491,7 @@
             // label
             // 
             this.label.AutoSize = true;
-            this.label.Location = new System.Drawing.Point(8, 41);
+            this.label.Location = new System.Drawing.Point(6, 34);
             this.label.Name = "label";
             this.label.Size = new System.Drawing.Size(164, 20);
             this.label.TabIndex = 0;
@@ -501,14 +502,14 @@
             this.dvgInStockHistory.AllowUserToAddRows = false;
             this.dvgInStockHistory.BackgroundColor = System.Drawing.Color.White;
             this.dvgInStockHistory.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dvgInStockHistory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dvgInStockHistory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dvgInStockHistory.ColumnHeadersHeight = 30;
             this.dvgInStockHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dvgInStockHistory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -523,14 +524,13 @@
             this.dataGridViewTextBoxColumn9});
             this.dvgInStockHistory.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dvgInStockHistory.EnableHeadersVisualStyles = false;
-            this.dvgInStockHistory.Location = new System.Drawing.Point(0, 100);
+            this.dvgInStockHistory.Location = new System.Drawing.Point(0, 85);
             this.dvgInStockHistory.Name = "dvgInStockHistory";
             this.dvgInStockHistory.RowHeadersVisible = false;
             this.dvgInStockHistory.RowHeadersWidth = 51;
             this.dvgInStockHistory.RowTemplate.Height = 24;
-            this.dvgInStockHistory.Size = new System.Drawing.Size(1097, 378);
+            this.dvgInStockHistory.Size = new System.Drawing.Size(1070, 409);
             this.dvgInStockHistory.TabIndex = 5;
-
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -606,7 +606,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1105, 593);
+            this.ClientSize = new System.Drawing.Size(1078, 586);
             this.ControlBox = false;
             this.Controls.Add(this.metroTabControl1);
             this.Controls.Add(this.panel1);

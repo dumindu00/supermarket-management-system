@@ -253,6 +253,7 @@
             this.Controls.Add(this.txtCash);
             this.Controls.Add(this.txtChange);
             this.Controls.Add(this.txtSale);
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Settle";

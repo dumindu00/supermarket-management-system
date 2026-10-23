@@ -32,6 +32,7 @@
             this.panelSlide = new System.Windows.Forms.Panel();
             this.btnLogout = new System.Windows.Forms.Button();
             this.panelSubSetting = new System.Windows.Forms.Panel();
+            this.btnBarcode = new System.Windows.Forms.Button();
             this.btnStore = new System.Windows.Forms.Button();
             this.btnUser = new System.Windows.Forms.Button();
             this.btnSetting = new System.Windows.Forms.Button();
@@ -86,7 +87,7 @@
             this.panelSlide.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSlide.Location = new System.Drawing.Point(0, 0);
             this.panelSlide.Name = "panelSlide";
-            this.panelSlide.Size = new System.Drawing.Size(200, 933);
+            this.panelSlide.Size = new System.Drawing.Size(167, 785);
             this.panelSlide.TabIndex = 0;
             // 
             // btnLogout
@@ -94,10 +95,10 @@
             this.btnLogout.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.ForeColor = System.Drawing.Color.White;
-            this.btnLogout.Location = new System.Drawing.Point(0, 888);
+            this.btnLogout.Location = new System.Drawing.Point(0, 885);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnLogout.Size = new System.Drawing.Size(200, 45);
+            this.btnLogout.Size = new System.Drawing.Size(146, 45);
             this.btnLogout.TabIndex = 9;
             this.btnLogout.Text = "Logout";
             this.btnLogout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -107,13 +108,30 @@
             // panelSubSetting
             // 
             this.panelSubSetting.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(200)))));
+            this.panelSubSetting.Controls.Add(this.btnBarcode);
             this.panelSubSetting.Controls.Add(this.btnStore);
             this.panelSubSetting.Controls.Add(this.btnUser);
             this.panelSubSetting.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSubSetting.Location = new System.Drawing.Point(0, 755);
             this.panelSubSetting.Name = "panelSubSetting";
-            this.panelSubSetting.Size = new System.Drawing.Size(200, 90);
+            this.panelSubSetting.Size = new System.Drawing.Size(146, 130);
             this.panelSubSetting.TabIndex = 8;
+            // 
+            // btnBarcode
+            // 
+            this.btnBarcode.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnBarcode.FlatAppearance.BorderSize = 0;
+            this.btnBarcode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBarcode.ForeColor = System.Drawing.Color.White;
+            this.btnBarcode.Location = new System.Drawing.Point(0, 90);
+            this.btnBarcode.Name = "btnBarcode";
+            this.btnBarcode.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnBarcode.Size = new System.Drawing.Size(146, 40);
+            this.btnBarcode.TabIndex = 6;
+            this.btnBarcode.Text = "Barcode";
+            this.btnBarcode.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBarcode.UseVisualStyleBackColor = true;
+            this.btnBarcode.Click += new System.EventHandler(this.btnBarcode_Click);
             // 
             // btnStore
             // 
@@ -124,7 +142,7 @@
             this.btnStore.Location = new System.Drawing.Point(0, 45);
             this.btnStore.Name = "btnStore";
             this.btnStore.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnStore.Size = new System.Drawing.Size(200, 45);
+            this.btnStore.Size = new System.Drawing.Size(146, 45);
             this.btnStore.TabIndex = 5;
             this.btnStore.Text = "Store";
             this.btnStore.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -140,7 +158,7 @@
             this.btnUser.Location = new System.Drawing.Point(0, 0);
             this.btnUser.Name = "btnUser";
             this.btnUser.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnUser.Size = new System.Drawing.Size(200, 45);
+            this.btnUser.Size = new System.Drawing.Size(146, 45);
             this.btnUser.TabIndex = 4;
             this.btnUser.Text = "User";
             this.btnUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -156,7 +174,7 @@
             this.btnSetting.Location = new System.Drawing.Point(0, 710);
             this.btnSetting.Name = "btnSetting";
             this.btnSetting.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnSetting.Size = new System.Drawing.Size(200, 45);
+            this.btnSetting.Size = new System.Drawing.Size(146, 45);
             this.btnSetting.TabIndex = 7;
             this.btnSetting.Text = "Setting";
             this.btnSetting.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -171,7 +189,7 @@
             this.panelSubRecord.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSubRecord.Location = new System.Drawing.Point(0, 620);
             this.panelSubRecord.Name = "panelSubRecord";
-            this.panelSubRecord.Size = new System.Drawing.Size(200, 90);
+            this.panelSubRecord.Size = new System.Drawing.Size(146, 90);
             this.panelSubRecord.TabIndex = 6;
             // 
             // btnPosRecord
@@ -183,7 +201,7 @@
             this.btnPosRecord.Location = new System.Drawing.Point(0, 45);
             this.btnPosRecord.Name = "btnPosRecord";
             this.btnPosRecord.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnPosRecord.Size = new System.Drawing.Size(200, 45);
+            this.btnPosRecord.Size = new System.Drawing.Size(146, 45);
             this.btnPosRecord.TabIndex = 5;
             this.btnPosRecord.Text = "POS Record";
             this.btnPosRecord.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -199,7 +217,7 @@
             this.btnSaleHist.Location = new System.Drawing.Point(0, 0);
             this.btnSaleHist.Name = "btnSaleHist";
             this.btnSaleHist.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnSaleHist.Size = new System.Drawing.Size(200, 45);
+            this.btnSaleHist.Size = new System.Drawing.Size(146, 45);
             this.btnSaleHist.TabIndex = 4;
             this.btnSaleHist.Text = "Sale History";
             this.btnSaleHist.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -215,7 +233,7 @@
             this.btnRecord.Location = new System.Drawing.Point(0, 575);
             this.btnRecord.Name = "btnRecord";
             this.btnRecord.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnRecord.Size = new System.Drawing.Size(200, 45);
+            this.btnRecord.Size = new System.Drawing.Size(146, 45);
             this.btnRecord.TabIndex = 5;
             this.btnRecord.Text = "Record";
             this.btnRecord.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -231,7 +249,7 @@
             this.btnSupplier.Location = new System.Drawing.Point(0, 530);
             this.btnSupplier.Name = "btnSupplier";
             this.btnSupplier.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnSupplier.Size = new System.Drawing.Size(200, 45);
+            this.btnSupplier.Size = new System.Drawing.Size(146, 45);
             this.btnSupplier.TabIndex = 4;
             this.btnSupplier.Text = "Supplier";
             this.btnSupplier.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -246,7 +264,7 @@
             this.panelSubStock.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSubStock.Location = new System.Drawing.Point(0, 440);
             this.panelSubStock.Name = "panelSubStock";
-            this.panelSubStock.Size = new System.Drawing.Size(200, 90);
+            this.panelSubStock.Size = new System.Drawing.Size(146, 90);
             this.panelSubStock.TabIndex = 0;
             // 
             // btnStockAdjustment
@@ -258,7 +276,7 @@
             this.btnStockAdjustment.Location = new System.Drawing.Point(0, 45);
             this.btnStockAdjustment.Name = "btnStockAdjustment";
             this.btnStockAdjustment.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnStockAdjustment.Size = new System.Drawing.Size(200, 45);
+            this.btnStockAdjustment.Size = new System.Drawing.Size(146, 45);
             this.btnStockAdjustment.TabIndex = 5;
             this.btnStockAdjustment.Text = "Stock Adjustment";
             this.btnStockAdjustment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -274,7 +292,7 @@
             this.btnStockEntry.Location = new System.Drawing.Point(0, 0);
             this.btnStockEntry.Name = "btnStockEntry";
             this.btnStockEntry.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnStockEntry.Size = new System.Drawing.Size(200, 45);
+            this.btnStockEntry.Size = new System.Drawing.Size(146, 45);
             this.btnStockEntry.TabIndex = 4;
             this.btnStockEntry.Text = "Stock Entry";
             this.btnStockEntry.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -290,7 +308,7 @@
             this.btnInStock.Location = new System.Drawing.Point(0, 395);
             this.btnInStock.Name = "btnInStock";
             this.btnInStock.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnInStock.Size = new System.Drawing.Size(200, 45);
+            this.btnInStock.Size = new System.Drawing.Size(146, 45);
             this.btnInStock.TabIndex = 3;
             this.btnInStock.Text = "In Stock";
             this.btnInStock.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -305,7 +323,7 @@
             this.panelSubProduct.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSubProduct.Location = new System.Drawing.Point(0, 260);
             this.panelSubProduct.Name = "panelSubProduct";
-            this.panelSubProduct.Size = new System.Drawing.Size(200, 135);
+            this.panelSubProduct.Size = new System.Drawing.Size(146, 135);
             this.panelSubProduct.TabIndex = 0;
             // 
             // btnBrand
@@ -318,7 +336,7 @@
             this.btnBrand.Location = new System.Drawing.Point(0, 90);
             this.btnBrand.Name = "btnBrand";
             this.btnBrand.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnBrand.Size = new System.Drawing.Size(200, 45);
+            this.btnBrand.Size = new System.Drawing.Size(146, 45);
             this.btnBrand.TabIndex = 5;
             this.btnBrand.Text = "Brand";
             this.btnBrand.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -335,7 +353,7 @@
             this.btnCategory.Location = new System.Drawing.Point(0, 45);
             this.btnCategory.Name = "btnCategory";
             this.btnCategory.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnCategory.Size = new System.Drawing.Size(200, 45);
+            this.btnCategory.Size = new System.Drawing.Size(146, 45);
             this.btnCategory.TabIndex = 4;
             this.btnCategory.Text = "Category";
             this.btnCategory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -352,7 +370,7 @@
             this.btnProductList.Location = new System.Drawing.Point(0, 0);
             this.btnProductList.Name = "btnProductList";
             this.btnProductList.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnProductList.Size = new System.Drawing.Size(200, 45);
+            this.btnProductList.Size = new System.Drawing.Size(146, 45);
             this.btnProductList.TabIndex = 3;
             this.btnProductList.Text = "ProductList";
             this.btnProductList.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -368,7 +386,7 @@
             this.btnProduct.Location = new System.Drawing.Point(0, 215);
             this.btnProduct.Name = "btnProduct";
             this.btnProduct.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnProduct.Size = new System.Drawing.Size(200, 45);
+            this.btnProduct.Size = new System.Drawing.Size(146, 45);
             this.btnProduct.TabIndex = 2;
             this.btnProduct.Text = "Product";
             this.btnProduct.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -384,11 +402,12 @@
             this.btnDashboard.Location = new System.Drawing.Point(0, 170);
             this.btnDashboard.Name = "btnDashboard";
             this.btnDashboard.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnDashboard.Size = new System.Drawing.Size(200, 45);
+            this.btnDashboard.Size = new System.Drawing.Size(146, 45);
             this.btnDashboard.TabIndex = 0;
             this.btnDashboard.Text = "Dashboard";
             this.btnDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDashboard.UseVisualStyleBackColor = true;
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
             // panelLogo
             // 
@@ -399,7 +418,7 @@
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
             this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(200, 170);
+            this.panelLogo.Size = new System.Drawing.Size(146, 170);
             this.panelLogo.TabIndex = 1;
             // 
             // lblName
@@ -417,7 +436,7 @@
             // 
             this.lblUsername.AutoSize = true;
             this.lblUsername.ForeColor = System.Drawing.Color.White;
-            this.lblUsername.Location = new System.Drawing.Point(49, 112);
+            this.lblUsername.Location = new System.Drawing.Point(31, 106);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(92, 21);
             this.lblUsername.TabIndex = 1;
@@ -428,7 +447,7 @@
             // 
             this.lblRole.AutoSize = true;
             this.lblRole.ForeColor = System.Drawing.Color.White;
-            this.lblRole.Location = new System.Drawing.Point(35, 146);
+            this.lblRole.Location = new System.Drawing.Point(17, 146);
             this.lblRole.Name = "lblRole";
             this.lblRole.Size = new System.Drawing.Size(114, 21);
             this.lblRole.TabIndex = 0;
@@ -437,7 +456,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(39, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(21, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(102, 85);
             this.pictureBox1.TabIndex = 1;
@@ -447,9 +466,9 @@
             // 
             this.panelTitle.Controls.Add(this.lblTitle);
             this.panelTitle.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTitle.Location = new System.Drawing.Point(200, 0);
+            this.panelTitle.Location = new System.Drawing.Point(167, 0);
             this.panelTitle.Name = "panelTitle";
-            this.panelTitle.Size = new System.Drawing.Size(1128, 40);
+            this.panelTitle.Size = new System.Drawing.Size(1208, 40);
             this.panelTitle.TabIndex = 1;
             // 
             // lblTitle
@@ -467,9 +486,9 @@
             this.panelMain.BackColor = System.Drawing.Color.White;
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.ForeColor = System.Drawing.Color.Black;
-            this.panelMain.Location = new System.Drawing.Point(200, 40);
+            this.panelMain.Location = new System.Drawing.Point(167, 40);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(1128, 893);
+            this.panelMain.Size = new System.Drawing.Size(1208, 745);
             this.panelMain.TabIndex = 2;
             // 
             // MainForm
@@ -477,17 +496,18 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
-            this.ClientSize = new System.Drawing.Size(1328, 933);
+            this.ClientSize = new System.Drawing.Size(1375, 785);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.panelTitle);
             this.Controls.Add(this.panelSlide);
             this.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.MinimumSize = new System.Drawing.Size(1320, 980);
+            this.MinimumSize = new System.Drawing.Size(1000, 600);
             this.Name = "MainForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Point of Sales";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.panelSlide.ResumeLayout(false);
             this.panelSubSetting.ResumeLayout(false);
             this.panelSubRecord.ResumeLayout(false);
@@ -507,7 +527,6 @@
         private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.Panel panelTitle;
         private System.Windows.Forms.Panel panelMain;
-        private System.Windows.Forms.Button btnDashboard;
         private System.Windows.Forms.Panel panelSubProduct;
         private System.Windows.Forms.Button btnProduct;
         private System.Windows.Forms.Button btnBrand;
@@ -532,6 +551,8 @@
         private System.Windows.Forms.Label lblTitle;
         public System.Windows.Forms.Label lblUsername;
         public System.Windows.Forms.Label lblName;
+        public System.Windows.Forms.Button btnDashboard;
+        private System.Windows.Forms.Button btnBarcode;
     }
 }
 

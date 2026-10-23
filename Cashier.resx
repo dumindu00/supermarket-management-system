@@ -294,6 +294,16 @@
         SUVORK5CYII=
 </value>
   </data>
+  <data name="label6.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAADnSURBVEhL7ZRbDQIxEEUrAQlIwAE4AAlIwAFIQAIOQAIScIAEcAD3bHaSybRZfgr8zE1O2pnO
+        I+mrpFK/0E68xGOwSrkIbM9CTMVFHyN6CmxyKx2EFUBXYbaxEp/ikPkYka2RWykbZ2P4SmOeCgt25TcC
+        2zMTU3HRx4jwY5ObGrQVd2Fn0gtqUrspLk4rqSfNM+bwfRD/rF0agz/3Ns6PIsZFn/3ZBr5KOH0QOxDF
+        8/DJrTjvi7uYjQdl471YBniP53G+FjEu+hh9zWZjHrgP+gb2d1c6iVZCD6g9qbngbHpCzdQ/VMobRdFI
+        W4T9e3wAAAAASUVORK5CYII=
+</value>
+  </data>
   <metadata name="Column1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>

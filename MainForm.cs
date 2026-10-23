@@ -18,6 +18,7 @@ namespace POSales
         MySqlConnection cn;
         MySqlCommand cmd;
         DBConnect dbcon = new DBConnect();
+        MySqlDataReader dr;
         public string _pass;
 
         public MainForm()
@@ -26,17 +27,6 @@ namespace POSales
             customizeDesign();
 
             cn = dbcon.GetConnection();
-
-            try 
-            {
-                cn.Open();
-                MessageBox.Show("Database is Connected");
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
 
         }
 
@@ -97,6 +87,7 @@ namespace POSales
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
+            openChildForm(new Dashboard());
             hideSubmenue();
         }
 
@@ -197,5 +188,34 @@ namespace POSales
             }
         }
 
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            btnDashboard.PerformClick();
+            Noti();
+        }
+
+        public void Noti()
+        {
+            int i = 0;
+            cn.Open();
+            cmd = new MySqlCommand("SELECT * FROM vwCriticalItems", cn);
+            dr = cmd.ExecuteReader();
+            while(dr.Read())
+            {
+                i++;
+                Alert alert = new Alert(this);
+                alert.lblPcode.Text = dr["pcode"].ToString();
+                alert.btnReorder.Enabled = true;
+                alert.showAlert(i + ", " + dr["pdesc"].ToString() + " - " + dr["qty"].ToString());
+            }
+            dr.Close();
+            cn.Close();
+        }
+
+        private void btnBarcode_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Barcode());
+            hideSubmenue();
+        }
     }
 }
